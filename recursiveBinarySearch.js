@@ -1,0 +1,28 @@
+const arr = [-4, 2, 4, 6, 7, 10, 28]
+const target = 10
+
+const recursiveBinarySearch = (arr,target)=>{
+  return search(arr,target,0,arr.length-1)
+}
+
+const search = (arr, target, leftIndex, rightIndex)=>{
+  if(leftIndex > rightIndex){
+    return -1
+  }
+  let middleIndex = Math.floor((leftIndex + rightIndex)/2)
+
+  if(target === arr[middleIndex]){
+    return middleIndex
+  }
+  if(target < arr[middleIndex]){
+    return search(arr, target, leftIndex, middleIndex - 1)
+  }else{
+    return search(arr,target, middleIndex + 1 , rightIndex)
+  }
+}
+
+console.log(recursiveBinarySearch(arr,target))
+
+// Array must be sorted and if sorted then
+// Big-O = O(logn) else
+// Big-O = O(nlogn)
