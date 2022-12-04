@@ -17,3 +17,7 @@ function insertionSort(arr) {
 console.log(insertionSort(arr))
 
 // Big-O = O(n^2)
+
+
+
+
