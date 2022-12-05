@@ -19,6 +19,10 @@ class Stack {
     return this.item.length === 0
   }
 
+  size(){
+    return this.item.length
+  }
+
   print(){
     console.log(this.item.toString())
   }
