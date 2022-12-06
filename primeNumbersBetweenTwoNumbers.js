@@ -19,7 +19,7 @@ function printPrimeNumbers(n1, n2) {
 }
 
 // Input two numbers from the user
-const n1 = 1;
+const n1 = 20;
 const n2 = 100;
 
 console.log(`Prime numbers between ${n1} and ${n2}:`);
