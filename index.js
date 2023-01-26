@@ -1,22 +1,31 @@
 // Array Partion - cloud boundary concept
 
-// Move all the zeros to the end of the array
+// Dutch national flag - 3 compartment
 
-const arr = [2, 0, 9, 12, 0, 25,0,0,89, 39, 13,0,11]
+const arr = [3, 2, 1, 4, 3, 6,4, 7, 5,-1,2,5,4,8,9]
 
-const moveZerosToEnd = (arr)=>{
-  let boundary = arr.length - 1
-  let i = arr.length - 1
-  while(i >= 0){
-    if(arr[i] === 0){
-      // swap number with boundary
-      [arr[i], arr[boundary]] = [arr[boundary], arr[i]]
-      boundary -= 1
-      console.log(arr)
+const pivot = 4
+
+const dutchNationalFlag = (arr, pivot)=>{
+  let lowBoundary = 0
+  let highBoundary = arr.length - 1
+  let i = 0
+
+  while(i<=highBoundary){
+    if(arr[i] < pivot){
+      [arr[i], arr[lowBoundary]] = [arr[lowBoundary], arr[i]]
+      lowBoundary += 1
+      // condition for i
+      i++
+    }else if (arr[i] > pivot){
+      [arr[i], arr[highBoundary]] = [arr[highBoundary],arr[i]]
+      highBoundary -= 1
+      // condition (tricky)
+    }else{
+      i++
     }
-    i -= 1
   }
-  
+  console.log(arr)
 }
 
-moveZerosToEnd(arr)
+dutchNationalFlag(arr, pivot)
