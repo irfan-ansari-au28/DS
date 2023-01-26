@@ -1,4 +1,4 @@
-arr = [9, -7, 2, -9, 8, 11]
+const arr = [9, -7, 2, -9, 8, 11]
 
 function insertionSort(arr) {
   for(let i=1; i<arr.length; i++){
