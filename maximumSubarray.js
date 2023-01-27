@@ -20,4 +20,7 @@ const maxSubArray = function(nums) {
     
 };
 
+// Big-O = O(n)
+
+// Output 6
 console.log(maxSubArray(nums))
