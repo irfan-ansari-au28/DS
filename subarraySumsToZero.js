@@ -12,10 +12,10 @@ const subarraySumsToZero = function(arr) {
 
   for (let i = 0; i < arr.length; i++) {
     sum += arr[i]
-    if(!prefixSum.hasOwnProperty(sum)){
+    if (!prefixSum.hasOwnProperty(sum)) {
       prefixSum[sum] = i
-    }else{
-      console.log(sum+1,i)
+    } else {
+      console.log(sum + 1, i)
       return
     }
     console.log(sum)
