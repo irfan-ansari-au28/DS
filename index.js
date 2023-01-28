@@ -1,33 +1,49 @@
-// Sub-Array preifix sum
-// Find an array that sums to a zero.
+// Binary Search works only on sorted Array
 
-const arr = [-1, 2, 1, -4, 2, 3, -1, 2];
+const arr = [-4, 2, 4, 6, 7, 10, 28]
+const target = 10
+
+// function binarySearch(arr,target){
+//   let leftIndex = 0
+//   let rightIndex = arr.length - 1
+
+//   while(leftIndex <= rightIndex){
+//     let midIndex = Math.floor((leftIndex + rightIndex) / 2)
+//     if(target == arr[midIndex]){
+//       return midIndex
+//     }
+//     if(target < arr[midIndex]){
+//       rightIndex = midIndex - 1
+//     }else{
+//       leftIndex = midIndex + 1
+//     }
+//   }
+//   return -1
+  
+// }
+
+// console.log(binarySearch(arr,target))
+
+// if array is already sorted
+// Big-O = O(logn)
 
 
+const binarySearch = (arr,target) =>{
+  let start = 0;
+  let end = arr.length - 1
 
-const subarraySumsToZero = function(arr) {
+  while(start <= end){
+    let mid = Math.floor(start + (end-start)/2)
 
-  let sum = 0
-  const prefixSum = {}
-
-  for (let i = 0; i < arr.length; i++) {
-    sum += arr[i]
-    if(!prefixSum.hasOwnProperty(sum)){
-      prefixSum[sum] = i
+    if(arr[mid] < target){
+      start = mid + 1
+    }else if(arr[mid] > target){
+      end = mid -1
     }else{
-      console.log(sum+1,i)
-      return
+      return mid
     }
-    console.log(sum)
-    console.log(prefixSum)
-    if (sum === 0) {
-      console.log(0, i)
-    }
-
   }
-};
+  return -1
+}
 
-// Big-O = O(n)
-
-// Output :
-subarraySumsToZero(arr);
+console.log(binarySearch(arr,target))
