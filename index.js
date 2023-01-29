@@ -1,7 +1,7 @@
 // Merge sorted array
 // Two pointer concept
 
-const merge = function (nums1, m, nums2, n) {
+const merge = function(nums1, m, nums2, n) {
   let i = m - 1;
   let j = n - 1;
   let k = m + n - 1;
@@ -15,7 +15,8 @@ const merge = function (nums1, m, nums2, n) {
   }
 
   while (j >= 0) {
-    nums[j--] = nums2[i--];
+    nums1[k--] = nums2[j--];
   }
+  console.log(nums1)
 };
 merge([7, 9, 45, 0, 0, 0], 3, [6, 15, 16], 3);
