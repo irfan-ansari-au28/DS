@@ -1,26 +1,21 @@
-// Binary Search works only on sorted Array
-// Find first occurence of target
+// Merge sorted array
+// Two pointer concept
 
-const arr = [-4, 2,2,2, 1, 3, 4, 4, 4, 4, 6, 7, 10, 28]
-const target = 4
+const merge = function (nums1, m, nums2, n) {
+  let i = m - 1;
+  let j = n - 1;
+  let k = m + n - 1;
 
-
-const binarySearchFirstOccurance = (arr, target) => {
-  let start = 0;
-  let end = arr.length - 1
-
-  while (start <= end) {
-    let mid = Math.floor(start + (end - start) / 2)
-
-    if (arr[mid] < target) {
-      start = mid + 1
-    } else if (arr[mid] > target || arr[mid] === target && mid > 0 && arr[mid - 1] === target) {
-      end = mid - 1
+  while (i >= 0 && j >= 0) {
+    if (nums1[i] > nums2[j]) {
+      nums1[k--] = nums1[i--];
     } else {
-      return mid
+      nums1[k--] = nums2[j--];
     }
   }
-  return -1
-}
 
-console.log(binarySearchFirstOccurance(arr, target))
+  while (j >= 0) {
+    nums[j--] = nums2[i--];
+  }
+};
+merge([7, 9, 45, 0, 0, 0], 3, [6, 15, 16], 3);
