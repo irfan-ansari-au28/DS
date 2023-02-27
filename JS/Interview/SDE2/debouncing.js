@@ -1,16 +1,14 @@
 const debounce = (fn, delay) => {
   let timer;
-  return () => {
+  return (...args) => {
     clearTimeout(timer);
-    timer = setTimeout(() => fn.apply(this, args), delay);
+    timer = setTimeout(() => fn(...args), delay);
   };
 };
 
-const fn = (delay) => {
-  setTimeout(() => {
-    console.log(Date.now()), 1000;
-  });
+const fn = (a, b) => {
+  console.log(a, b, "c");
 };
 
-const debouncer = debounce(fn(2000));
-debouncer();
+const debouncer = debounce(fn, 3000);
+debouncer("a", "b");
